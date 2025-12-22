@@ -1,19 +1,19 @@
 {
-    "version": "1.3.2",
+    "version": "1.3.3",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/warpdl/warpdl/releases/download/v1.3.2/warpdl_1.3.2_windows_amd64.zip",
+            "url": "https://github.com/warpdl/warpdl/releases/download/v1.3.3/warpdl_1.3.3_windows_amd64.zip",
             "bin": [
                 "warpdl.exe"
             ],
-            "hash": "d3eedfe64e698dd143e7702c41fe75cc8ff49478e0f1d55104307c449cbdba37"
+            "hash": "8fca8943ba0714ed50256a2510a69959c3f0c3cfad3e14506d98588a3d767f79"
         },
         "arm64": {
-            "url": "https://github.com/warpdl/warpdl/releases/download/v1.3.2/warpdl_1.3.2_windows_arm64.zip",
+            "url": "https://github.com/warpdl/warpdl/releases/download/v1.3.3/warpdl_1.3.3_windows_arm64.zip",
             "bin": [
                 "warpdl.exe"
             ],
-            "hash": "83d42f84e12fef3afedd914c4a6b4a6c44024f2b399b43c6d7e8dbf3eb5ce9b3"
+            "hash": "1d058bc08d5f8207d7a4dea162bcdf4f8478d4ccbbf5d6f86b833861a5621504"
         }
     },
     "homepage": "https://github.com/warpdl/warpdl",
