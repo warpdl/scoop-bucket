@@ -1,32 +1,21 @@
 {
-  "version": "1.3.10",
-  "architecture": {
-    "64bit": {
-      "url": "https://github.com/warpdl/warpdl/releases/download/v1.3.10/warpdl_1.3.10_windows_amd64.zip",
-      "bin": [
-        "warpdl.exe"
-      ],
-      "hash": "ef45db34566d6ab806330402d49eafa19b58bcd3952fe0305a0d4a711cd02831"
+    "version": "1.3.11",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/warpdl/warpdl/releases/download/v1.3.11/warpdl_1.3.11_windows_amd64.zip",
+            "bin": [
+                "warpdl.exe"
+            ],
+            "hash": "7f578f0584a5512d485c808136303a06a831c3400d9c6b5e44d8ff0d74e50ccf"
+        },
+        "arm64": {
+            "url": "https://github.com/warpdl/warpdl/releases/download/v1.3.11/warpdl_1.3.11_windows_arm64.zip",
+            "bin": [
+                "warpdl.exe"
+            ],
+            "hash": "16f6c1ce5320298b924a0b4754e78f6ca32e21495d37bb65bca73d946cd63542"
+        }
     },
-    "arm64": {
-      "url": "https://github.com/warpdl/warpdl/releases/download/v1.3.10/warpdl_1.3.10_windows_arm64.zip",
-      "bin": [
-        "warpdl.exe"
-      ],
-      "hash": "78634145fb6063a4d8fb962205d3e3b854ced33fc1b55130f87e17903b10fe0b"
-    }
-  },
-  "homepage": "https://github.com/warpdl/warpdl",
-  "description": "The official Warp CLI download manager",
-  "pre_uninstall": [
-    "$pidFile = Join-Path $env:APPDATA \"warpdl\\daemon.pid\"",
-    "if (Test-Path $pidFile) {",
-    "  $pid = Get-Content $pidFile -ErrorAction SilentlyContinue",
-    "  if ($pid) {",
-    "    try { Stop-Process -Id $pid -Force -ErrorAction SilentlyContinue } catch {}",
-    "  }",
-    "  Remove-Item $pidFile -Force -ErrorAction SilentlyContinue",
-    "}",
-    "Write-Host \"WarpDL daemon stopped.\""
-  ]
+    "homepage": "https://github.com/warpdl/warpdl",
+    "description": "The official Warp CLI download manager"
 }
