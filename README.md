@@ -4,21 +4,21 @@ Official [Scoop](https://scoop.sh) bucket for [WarpDL](https://github.com/warpdl
 
 ## Installation
 
-```powershell
+```bash
 scoop bucket add warpdl https://github.com/warpdl/scoop-bucket
 scoop install warpdl
 ```
 
 ## Upgrade
 
-```powershell
+```bash
 scoop update warpdl
 ```
 
 
 ## Uninstall 
 
-```powershell
+```bash
 scoop uninstall warpdl
 scoop bucket rm warpdl  # optional
 ```
