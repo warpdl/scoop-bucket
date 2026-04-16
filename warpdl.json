@@ -1,21 +1,37 @@
 {
-    "version": "1.4.5",
-    "architecture": {
-        "64bit": {
-            "url": "https://github.com/warpdl/warpdl/releases/download/v1.4.5/warpdl_1.4.5_windows_amd64.zip",
-            "bin": [
-                "warpdl.exe"
-            ],
-            "hash": "c9106391e6043cc2e3022db2723eb108f890ceb3c7e412165ad4ccf3c9fcdd65"
-        },
-        "arm64": {
-            "url": "https://github.com/warpdl/warpdl/releases/download/v1.4.5/warpdl_1.4.5_windows_arm64.zip",
-            "bin": [
-                "warpdl.exe"
-            ],
-            "hash": "4b444780211058b3f94927cd2fee4e32a0ac5c11651c33b145f6eb6224660ac0"
-        }
+  "version": "1.4.5",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/warpdl/warpdl/releases/download/v1.4.5/warpdl_1.4.5_windows_amd64.zip",
+      "bin": [
+        "warpdl.exe"
+      ],
+      "hash": "c9106391e6043cc2e3022db2723eb108f890ceb3c7e412165ad4ccf3c9fcdd65"
     },
-    "homepage": "https://github.com/warpdl/warpdl",
-    "description": "The official Warp CLI download manager"
+    "arm64": {
+      "url": "https://github.com/warpdl/warpdl/releases/download/v1.4.5/warpdl_1.4.5_windows_arm64.zip",
+      "bin": [
+        "warpdl.exe"
+      ],
+      "hash": "4b444780211058b3f94927cd2fee4e32a0ac5c11651c33b145f6eb6224660ac0"
+    }
+  },
+  "homepage": "https://github.com/warpdl/warpdl",
+  "description": "The official Warp CLI download manager",
+  "post_install": [
+    "$warpdl = Join-Path $dir \"warpdl.exe\"",
+    "& $warpdl native-host install --auto 2>$null"
+  ],
+  "pre_uninstall": [
+    "& (Join-Path $dir \"warpdl.exe\") native-host uninstall --browser all 2>$null",
+    "$pidFile = Join-Path $env:APPDATA \"warpdl\\daemon.pid\"",
+    "if (Test-Path $pidFile) {",
+    "  $pid = Get-Content $pidFile -ErrorAction SilentlyContinue",
+    "  if ($pid) {",
+    "    try { Stop-Process -Id $pid -Force -ErrorAction SilentlyContinue } catch {}",
+    "  }",
+    "  Remove-Item $pidFile -Force -ErrorAction SilentlyContinue",
+    "}",
+    "Write-Host \"WarpDL daemon stopped.\""
+  ]
 }
